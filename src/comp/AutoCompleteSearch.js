@@ -25,32 +25,38 @@ handleChange = selectedOption => {
 };
 
   // Event fired when the input value is changed
-requestOptions = input =>{
-    const api_get_queary = 'http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=mvekqG183jXpVvLVIokbeX6IqkqLSIZr='+input
+requestOptions = (input, { action }) =>{
+    if (action == "input-blur" || action =='menu-close'){
+      return
+    } 
+    const api_get_queary = 'http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=D8HsB7RaUeFi3T93b2AKMgX0Y96bQKDR&q='+input
+    //const api_get_queary = 'https://jsonplaceholder.typicode.com/todos/1'
     const suggestions= this.getSuggestionsFromAPI(api_get_queary)
     this.setState({options:suggestions}) 
 }
 
 getSuggestionsFromAPI(url) {
     //let x = require('./demo.json');
-
     //this section build the suggestion array from the json
     const sugg =[]
 
+    console.log("new call")
     fetch(url)
     .then(res => res.json())
     .then(
-      (result) => {
+      (result) => {      
         result.forEach(e => {
           sugg.push ({ value: e.LocalizedName + ', ' + e.Country.ID, label: e.LocalizedName + ', ' + e.Country.ID, key:e.Key })
         });
-        return sugg
+        this.setState({options:sugg})
+        return 
       },
       // Note: it's important to handle errors here
       // instead of a catch() block so that we don't swallow
       // exceptions from actual bugs in components.
       (error) => {
         console.log('ERROR: opsss something happen with the autocomplete request')
+        console.log(error)
       }
     )
   }
@@ -66,6 +72,7 @@ getSuggestionsFromAPI(url) {
           onInputChange ={this.requestOptions}
           options={this.state.options}
           placeholder ="Search"
+          
         />
       </div>
     )

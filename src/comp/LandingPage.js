@@ -6,18 +6,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 
+//static state
+let state = {currentCityName:"",Forecasts:[], CurrentConditions:{}, isFav:0 };
+let firstRunFlag =true
+
 class LandingPage extends Component {
     constructor(){
         super()
-        this.state  = {currentCityName:"",Forecasts:[], CurrentConditions:{}, isFav:0 }
+        // Retrieve the last state
+        this.state = state;   
     }
 
-    componentDidMount(){
-        //defualt values of tel aviv
-        this.updateCurrCityName('Tel Aviv')
-        this.getForcastFromAPI('215854')
-        this.getCurrentConditionsFromAPI('215854')
-    }
+    componentWillUnmount() {
+        // Remember state for the next mount
+        state = this.state;
+      }
 
     updateCurrCityName =(name)=>{
         this.setState({currentCityName:name})
@@ -25,13 +28,13 @@ class LandingPage extends Component {
     }
 
     getForcastFromAPI = (cityId)=> {
-        //const url = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/"+cityId+"?apikey=mvekqG183jXpVvLVIokbeX6IqkqLSIZr&metric=true"
-        const url="https://jsonplaceholder.typicode.com/todos/1"
+        
+        const url = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/"+cityId+"?apikey=D8HsB7RaUeFi3T93b2AKMgX0Y96bQKDR&metric=true"
+        //const url="https://jsonplaceholder.typicode.com/todos/1"
         fetch(url)
         .then(res => res.json())
         .then(
           (result) => {
-            result=  require('./demoforcats.json');
             this.setState(
                 {
                     Forecasts : result.DailyForecasts
@@ -49,13 +52,12 @@ class LandingPage extends Component {
       }
 
     getCurrentConditionsFromAPI = (cityId)=> {
-        //const url ="http://dataservice.accuweather.com/currentconditions/v1/"+cityId+"?apikey=mvekqG183jXpVvLVIokbeX6IqkqLSIZr"
-        const url="https://jsonplaceholder.typicode.com/todos/1"
+        const url ="http://dataservice.accuweather.com/currentconditions/v1/"+cityId+"?apikey=D8HsB7RaUeFi3T93b2AKMgX0Y96bQKDR"
+        //const url="https://jsonplaceholder.typicode.com/todos/1"
         fetch(url)
         .then(res => res.json())
         .then(
           (result) => {
-            result=  require('./democurrentweather.json');
             this.setState(
                 {
                     CurrentConditions : result[0]
@@ -126,7 +128,14 @@ class LandingPage extends Component {
     }
 
     render(){
-        
+        if(firstRunFlag){
+            //defualt values
+            firstRunFlag=false;
+            this.updateCurrCityName('Tel Aviv')
+            this.getForcastFromAPI('215854')
+            this.getCurrentConditionsFromAPI('215854')
+        }
+
         const days_arr = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         let temp = ""
         let currentweatherIcon = ""
