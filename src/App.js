@@ -33,7 +33,7 @@ class App extends Component {
   isInFav = (obj)=>{
     let i;
     for (i = 0; i < this.state.favoritesCitys.length; i++) {
-      if(this.state.favoritesCitys[i].name == obj.name){
+      if(this.state.favoritesCitys[i].name === obj.name){
         return 1
       }
     }
@@ -43,7 +43,7 @@ class App extends Component {
   remFromFav =(obj)=>{
     let i;
     for (i = 0; i < this.state.favoritesCitys.length; i++) {
-      if(this.state.favoritesCitys[i].name == obj.name){
+      if(this.state.favoritesCitys[i].name === obj.name){
         this.state.favoritesCitys.splice(i, 1)
         return 1
       }

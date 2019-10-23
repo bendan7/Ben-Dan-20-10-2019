@@ -29,8 +29,7 @@ class LandingPage extends Component {
 
     getForcastFromAPI = (cityId)=> {
         
-        const url = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/"+cityId+"?apikey=D8HsB7RaUeFi3T93b2AKMgX0Y96bQKDR&metric=true"
-        //const url="https://jsonplaceholder.typicode.com/todos/1"
+        const url = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/"+cityId+"?apikey=3nLnVGu6bRKoXuPMecVRozYXub2GDzvF&metric=true"
         fetch(url)
         .then(res => res.json())
         .then(
@@ -52,8 +51,7 @@ class LandingPage extends Component {
       }
 
     getCurrentConditionsFromAPI = (cityId)=> {
-        const url ="http://dataservice.accuweather.com/currentconditions/v1/"+cityId+"?apikey=D8HsB7RaUeFi3T93b2AKMgX0Y96bQKDR"
-        //const url="https://jsonplaceholder.typicode.com/todos/1"
+        const url ="https://dataservice.accuweather.com/currentconditions/v1/"+cityId+"?apikey=3nLnVGu6bRKoXuPMecVRozYXub2GDzvF"
         fetch(url)
         .then(res => res.json())
         .then(
