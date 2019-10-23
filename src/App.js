@@ -1,42 +1,89 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
 import './App.css';
-import SearchField from './comp/SearchField.js';
+import LandingPage from './comp/LandingPage.js'
+import FavoritesPage from './comp/FavoritesPage.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload!.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <SearchField
-        suggestions={[
-          "Alligator",
-          "Bask",
-          "Crocodilian",
-          "Death Roll",
-          "Eggs",
-          "Jaws",
-          "Reptile",
-          "Solitary",
-          "Tail",
-          "Wetlands"
-        ]}
-      />
-    
-      </header>
-    </div>
-  );
+import {
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+
+
+
+class App extends Component {
+
+  constructor(){
+    super();
+    this.state ={favoritesCitys:[]}
+       
+
+  }
+
+  addToFav = (obj)=> {
+    // this section prevent form adding the same city obj into the array
+    if (this.isInFav(obj)){
+      return 0
+    }
+    this.state.favoritesCitys.push(obj)
+    return 1
+    }
+
+  isInFav = (obj)=>{
+    let i;
+    for (i = 0; i < this.state.favoritesCitys.length; i++) {
+      if(this.state.favoritesCitys[i].name == obj.name){
+        return 1
+      }
+    }
+    return 0
+  }
+
+  remFromFav =(obj)=>{
+    let i;
+    for (i = 0; i < this.state.favoritesCitys.length; i++) {
+      if(this.state.favoritesCitys[i].name == obj.name){
+        this.state.favoritesCitys.splice(i, 1)
+        return 1
+      }
+    }
+    return 0
+  }
+
+  getFavCitys = ()=>{
+    return this.state.favoritesCitys
+  }
+
+  
+  render(){
+    return (
+      <div className="wrapper">
+          <div className="nav d-flex justify-content-between p-3 p-sm-5">
+            <h2>Herolo Task</h2>
+              <div >
+                <Link to="/">
+                  <button style={{marginRight:'1vw',}} type="button" className="btn btn-primary" >Home</button>
+                </Link>
+                <Link to="/favoritesPage">
+                  <button style={{marginLeft:'1vw'}} type="button" className="btn btn-primary" >favoritesPage</button>
+                </Link>
+              </div>
+          </div>
+
+          <Switch>
+            <Route path="/favoritesPage">
+              <FavoritesPage getFavCitys={this.getFavCitys} />
+            </Route>
+            <Route path="/">
+              <LandingPage addToFav={this.addToFav} isInFav={this.isInFav} remFromFav={this.remFromFav} />
+            </Route>
+          </Switch>
+          
+          
+      </div>
+    );
+  } 
 }
 
 export default App;
