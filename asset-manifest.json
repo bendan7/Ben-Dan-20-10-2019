@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Ben-Dan-20-10-2019/static/css/main.eb3b8f4d.chunk.css",
-    "main.js": "/Ben-Dan-20-10-2019/static/js/main.37ad749a.chunk.js",
-    "main.js.map": "/Ben-Dan-20-10-2019/static/js/main.37ad749a.chunk.js.map",
-    "runtime-main.js": "/Ben-Dan-20-10-2019/static/js/runtime-main.dbd59948.js",
-    "runtime-main.js.map": "/Ben-Dan-20-10-2019/static/js/runtime-main.dbd59948.js.map",
-    "static/css/2.f5b57a2b.chunk.css": "/Ben-Dan-20-10-2019/static/css/2.f5b57a2b.chunk.css",
-    "static/js/2.71828043.chunk.js": "/Ben-Dan-20-10-2019/static/js/2.71828043.chunk.js",
-    "static/js/2.71828043.chunk.js.map": "/Ben-Dan-20-10-2019/static/js/2.71828043.chunk.js.map",
-    "index.html": "/Ben-Dan-20-10-2019/index.html",
-    "precache-manifest.61bcccc7dd2b3a3149e5bf3273330ff2.js": "/Ben-Dan-20-10-2019/precache-manifest.61bcccc7dd2b3a3149e5bf3273330ff2.js",
-    "service-worker.js": "/Ben-Dan-20-10-2019/service-worker.js",
-    "static/css/2.f5b57a2b.chunk.css.map": "/Ben-Dan-20-10-2019/static/css/2.f5b57a2b.chunk.css.map",
-    "static/css/main.eb3b8f4d.chunk.css.map": "/Ben-Dan-20-10-2019/static/css/main.eb3b8f4d.chunk.css.map"
+    "main.css": "./static/css/main.eb3b8f4d.chunk.css",
+    "main.js": "./static/js/main.36c6bcf1.chunk.js",
+    "main.js.map": "./static/js/main.36c6bcf1.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.e55b39e9.js",
+    "runtime-main.js.map": "./static/js/runtime-main.e55b39e9.js.map",
+    "static/css/2.f5b57a2b.chunk.css": "./static/css/2.f5b57a2b.chunk.css",
+    "static/js/2.71828043.chunk.js": "./static/js/2.71828043.chunk.js",
+    "static/js/2.71828043.chunk.js.map": "./static/js/2.71828043.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.b7bf889c26c095f7b3956833f298f29b.js": "./precache-manifest.b7bf889c26c095f7b3956833f298f29b.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/2.f5b57a2b.chunk.css.map": "./static/css/2.f5b57a2b.chunk.css.map",
+    "static/css/main.eb3b8f4d.chunk.css.map": "./static/css/main.eb3b8f4d.chunk.css.map"
   }
 }
