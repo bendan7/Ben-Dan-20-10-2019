@@ -29,7 +29,7 @@ class LandingPage extends Component {
 
     getForcastFromAPI = (cityId)=> {
         
-        const url = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/"+cityId+"?apikey=3nLnVGu6bRKoXuPMecVRozYXub2GDzvF&metric=true"
+        const url = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/"+cityId+"?apikey="+this.props.apiKey+"&metric=true"
         fetch(url)
         .then(res => res.json())
         .then(
@@ -51,7 +51,7 @@ class LandingPage extends Component {
       }
 
     getCurrentConditionsFromAPI = (cityId)=> {
-        const url ="https://dataservice.accuweather.com/currentconditions/v1/"+cityId+"?apikey=3nLnVGu6bRKoXuPMecVRozYXub2GDzvF"
+        const url ="https://dataservice.accuweather.com/currentconditions/v1/"+cityId+"?apikey="+this.props.apiKey
         fetch(url)
         .then(res => res.json())
         .then(
@@ -103,7 +103,7 @@ class LandingPage extends Component {
         
     addOrRemovBut = ()=>{
         //ans=1 not in the fav
-        if(this.props.isInFav({name:this.state.currentCityName})==0){
+        if(this.props.isInFav({name:this.state.currentCityName})===0){
             return(
                 <button className="btn btn-primary btn-sm  "
                 onClick={this.addToFav} >
@@ -149,7 +149,7 @@ class LandingPage extends Component {
 
                         {/* search bar */}                    
                         <div className=" d-flex justify-content-center mx-sm-5 mt-sm-5 mx-2 mt-2 "> 
-                            <AutoCompleteSearch updateCityName={this.updateCurrCityName} getForcastFromAPI= {this.getForcastFromAPI} getCurrentConditionsFromAPI={this.getCurrentConditionsFromAPI} />
+                            <AutoCompleteSearch updateCityName={this.updateCurrCityName} apiKey={this.props.apiKey} getForcastFromAPI= {this.getForcastFromAPI} getCurrentConditionsFromAPI={this.getCurrentConditionsFromAPI} />
                         </div> 
 
                         {/*second row */}

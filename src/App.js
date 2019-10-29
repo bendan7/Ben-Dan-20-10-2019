@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 
 
-
+const API_KEY = 'oHflRrFAtMd4mLGwIcIAdjr0XKC3PZwm'
 
 class App extends Component {
 
@@ -59,7 +59,7 @@ class App extends Component {
   render(){
     return (
       <div className="wrapper">
-          <div className="nav d-flex justify-content-between p-3 p-sm-5">
+          <div className="nav d-flex justify-content-between p-1 p-sm-5">
             <h2>Herolo Task</h2>
               <div >
                 <Link to="/">
@@ -76,7 +76,7 @@ class App extends Component {
               <FavoritesPage getFavCitys={this.getFavCitys} />
             </Route>
             <Route path="/">
-              <LandingPage addToFav={this.addToFav} isInFav={this.isInFav} remFromFav={this.remFromFav} />
+              <LandingPage apiKey={API_KEY} addToFav={this.addToFav} isInFav={this.isInFav} remFromFav={this.remFromFav} />
             </Route>
           </Switch>
           
@@ -87,3 +87,4 @@ class App extends Component {
 }
 
 export default App;
+

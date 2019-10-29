@@ -2,7 +2,7 @@
   "name": "herolo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://bendan7.github.io/Ben-Dan-20-10-2019",
+  "homepage": ".",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",

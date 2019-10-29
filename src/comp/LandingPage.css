@@ -19,18 +19,15 @@ input {
 
 .test {
    background-color: tomato;
-   
-
 }
 
 .card {
    
-    min-height: 80px;
-    min-width: 400px;
+
 }
 .searchBar {
     align-items: center;
     align-content: center;
-    background-color: grey;
+    
     
 }

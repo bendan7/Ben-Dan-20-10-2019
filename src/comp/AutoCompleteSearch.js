@@ -29,7 +29,7 @@ requestOptions = (input, { action }) =>{
     if (action == "input-blur" || action =='menu-close'){
       return
     } 
-    const api_get_queary = 'https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=3nLnVGu6bRKoXuPMecVRozYXub2GDzvF&q='+input
+    const api_get_queary = 'https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey='+this.props.apiKey+'&q='+input
     const suggestions= this.getSuggestionsFromAPI(api_get_queary)
     this.setState({options:suggestions}) 
 }
