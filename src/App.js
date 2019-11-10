@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css';
-import LandingPage from './comp/LandingPage.js'
+import HomePage from './comp/HomePage.js'
 import FavoritesPage from './comp/FavoritesPage.js'
 
 import {
@@ -16,34 +16,116 @@ class App extends Component {
 
   constructor(){
     super();
-    this.state ={favoritesCitys:[]}
-       
-
+    this.state ={
+      favoritesCitys:[],
+      selectedCityId:"",
+      selectedCityName:"",
+      selectedCityConditions:{},
+      selectedCityForecasts:[],
+      selectedCityisFav:0,
+      initFlag: true
+    }
+    
   }
 
-  addToFav = (obj)=> {
-    // this section prevent form adding the same city obj into the array
-    if (this.isInFav(obj)){
+  componentDidMount() {
+    //defualt values
+    this.updateSelectCityName('Tel Aviv')
+    this.getForcastFromAPI('215854')
+    this.getCurrentConditionsFromAPI('215854')
+    this.isInFav()
+  }
+
+  updateSelectCityName =(name)=>{
+    this.setState({selectedCityName:name})
+    
+  }
+
+  getCurrentConditionsFromAPI = (cityId)=> {
+    
+    const url ="https://dataservice.accuweather.com/currentconditions/v1/"+cityId+"?apikey="+API_KEY
+    fetch(url)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState(
+            {
+              selectedCityConditions : result[0],
+              selectedCityId:cityId
+            }
+        )
+        this.render()
+        
+      },
+      // Note: it's important to handle errors here
+      // instead of a catch() block so that we don't swallow
+      // exceptions from actual bugs in components.
+      (error) => {
+        console.log('ERROR: opsss something happen with the getForcastFromAPI request')
+      }
+    )
+   
+  }
+
+  getForcastFromAPI = (cityId)=> {
+    const url = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/"+cityId+"?apikey="+API_KEY+"&metric=true"
+    fetch(url)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState(
+            {
+              selectedCityForecasts : result.DailyForecasts
+            }
+        )
+      },
+      // Note: it's important to handle errors here
+      // instead of a catch() block so that we don't swallow
+      // exceptions from actual bugs in components.
+      (error) => {
+        console.log('ERROR: opsss something happen with the getForcastFromAPI request')
+      }
+    )
+    
+  }
+
+  addToFav = ()=> {
+    if (this.isInFav(this.state.selectedCityId)){
+      console.log("allready in fav")
       return 0
     }
-    this.state.favoritesCitys.push(obj)
+    this.state.favoritesCitys.push({
+      id:this.state.selectedCityId,
+      name:this.state.selectedCityName ,
+      temp:this.state.selectedCityConditions.Temperature.Metric.Value,
+      text:this.state.selectedCityConditions.WeatherText,
+      weatherIconId:this.state.selectedCityConditions.WeatherIcon
+    })
     return 1
-    }
+  }
 
-  isInFav = (obj)=>{
-    let i;
-    for (i = 0; i < this.state.favoritesCitys.length; i++) {
-      if(this.state.favoritesCitys[i].name === obj.name){
+  isInFav = (cityId)=>{
+    // if cityId is undefined it use the current city
+    if (cityId === undefined){
+      cityId = this.state.selectedCityId
+    }
+    for (let i = 0; i < this.state.favoritesCitys.length; i++) {
+      if(this.state.favoritesCitys[i].id === cityId){
         return 1
       }
     }
     return 0
   }
 
-  remFromFav =(obj)=>{
-    let i;
-    for (i = 0; i < this.state.favoritesCitys.length; i++) {
-      if(this.state.favoritesCitys[i].name === obj.name){
+  remFromFav =(cityId)=>{
+
+    // if cityId is undefined it use the current city
+    if (cityId === undefined){
+      cityId = this.state.selectedCityId
+    }
+
+    for (let i = 0; i < this.state.favoritesCitys.length; i++) {
+      if(this.state.favoritesCitys[i].id === cityId){
         this.state.favoritesCitys.splice(i, 1)
         return 1
       }
@@ -57,6 +139,7 @@ class App extends Component {
 
   
   render(){
+
     return (
       <div className="wrapper">
           <div className="nav d-flex justify-content-between p-1 p-sm-5">
@@ -76,7 +159,20 @@ class App extends Component {
               <FavoritesPage getFavCitys={this.getFavCitys} />
             </Route>
             <Route path="/">
-              <LandingPage apiKey={API_KEY} addToFav={this.addToFav} isInFav={this.isInFav} remFromFav={this.remFromFav} />
+              <HomePage
+                apiKey={API_KEY}
+                updateSelectCityName = {this.updateSelectCityName}
+                getCurrentConditionsFromAPI= {this.getCurrentConditionsFromAPI}
+                getForcastFromAPI = {this.getForcastFromAPI}
+                addToFav={this.addToFav}
+                isInFav={this.isInFav}
+                remFromFav={this.remFromFav}
+                cityName = {this.state.selectedCityName}
+                selectedCityConditions = {this.state.selectedCityConditions}
+                selectedCityForecasts = {this.state.selectedCityForecasts}
+                
+
+              />
             </Route>
           </Switch>
           

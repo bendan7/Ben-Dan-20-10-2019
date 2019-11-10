@@ -19,14 +19,14 @@ handleChange = selectedOption => {
     { selectedOption },
     () => console.log(`Option selected:`, this.state.selectedOption)
     );
-    this.props.updateCityName(selectedOption.label)
+    this.props.updateSelectCityName(selectedOption.label)
     this.props.getCurrentConditionsFromAPI(selectedOption.key)
     this.props.getForcastFromAPI( selectedOption.key)
 };
 
   // Event fired when the input value is changed
 requestOptions = (input, { action }) =>{
-    if (action == "input-blur" || action =='menu-close'){
+    if (action === "input-blur" || action ==='menu-close'){
       return
     } 
     const api_get_queary = 'https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey='+this.props.apiKey+'&q='+input
@@ -39,7 +39,7 @@ getSuggestionsFromAPI(url) {
     //this section build the suggestion array from the json
     const sugg =[]
 
-    console.log("new call")
+    console.log("new api call")
     fetch(url)
     .then(res => res.json())
     .then(
