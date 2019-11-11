@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import './App.css';
 import HomePage from './comp/HomePage.js'
 import FavoritesPage from './comp/FavoritesPage.js'
+import Header from './comp/Header.js'
 
 import {
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 
@@ -142,20 +142,9 @@ class App extends Component {
 
     return (
       <div className="wrapper">
-          <div className="nav d-flex justify-content-between p-1 p-sm-5">
-            <h2>Herolo Task</h2>
-              <div >
-                <Link to="/">
-                  <button style={{marginRight:'1vw',}} type="button" className="btn btn-primary" >Home</button>
-                </Link>
-                <Link to="/favoritesPage">
-                  <button style={{marginLeft:'1vw'}} type="button" className="btn btn-primary" >favoritesPage</button>
-                </Link>
-              </div>
-          </div>
-
+          <Header/>
           <Switch>
-            <Route path="/favoritesPage">
+          <Route path="/favoritesPage">
               <FavoritesPage getFavCitys={this.getFavCitys} />
             </Route>
             <Route path="/">
@@ -170,13 +159,10 @@ class App extends Component {
                 cityName = {this.state.selectedCityName}
                 selectedCityConditions = {this.state.selectedCityConditions}
                 selectedCityForecasts = {this.state.selectedCityForecasts}
-                
-
               />
             </Route>
-          </Switch>
-          
-          
+
+          </Switch>         
       </div>
     );
   } 

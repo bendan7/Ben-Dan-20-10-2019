@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './LandingPage.css';
+import './HomePage.css';
 import AutoCompleteSearch from'./AutoCompleteSearch.js'
 import Card from'./Card.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -50,7 +50,7 @@ class HomePage extends Component {
 
 
         return(
-            <div className="d-flex-col">         
+            <div className="body d-flex-col">         
                     <div className="d-flex-col w-100 " >  
 
                         {/* search bar */}                    
@@ -83,11 +83,11 @@ class HomePage extends Component {
 
                             {/* add to favorites block */}   
                                 <div className="d-flex align-self-sm-start align-self-end ">
-                                <button className="btn btn-primary btn-sm  "
+                                    <button className="btn btn-outline-light  "
                                         onClick={this.clickHandler} >
                                         {this.state.FavoritesAddOrRemove}
                                         <span className="icon">
-                                            <FontAwesomeIcon icon={faHeart} size="2x" color="red"/>
+                                            <FontAwesomeIcon icon={faHeart} size="2x" color="white"/>
                                         </span> 
                                     </button>
                                 </div>

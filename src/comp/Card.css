@@ -1,4 +1,35 @@
 .card-body {
     min-width: 120px;
+    background-color: transparent;
+    
 
 }
+.d-flex .card {
+
+    background-color: transparent;
+    border-style: none;
+    
+}
+.test{
+    background-color: teal;
+
+}
+
+@media screen and (min-width: 576px) {
+    .d-flex .card { 
+    border-radius: 10px;
+    min-width: 10vw;
+    min-height: 10vh;
+    box-shadow: 3px 4px 5px 0 rgba(0, 0, 0, 0.2)
+    }
+  } 
+
+@media screen and (max-width: 576px) {
+    .small-screen{
+        padding: 10px;
+        border-top-style: solid;
+        border-top-color: rgba(255, 255, 255, .2);;
+        justify-content:space-between;
+        width: 100%;
+    }
+} 
