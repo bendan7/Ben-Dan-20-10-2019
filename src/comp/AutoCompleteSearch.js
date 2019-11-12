@@ -16,11 +16,12 @@ class AutoCompleteSearch extends Component {
   
   componentDidMount() {
     //start with defualt values
-    this.handleChange({key:"215854",label:"Tel Aviv, IL",value:"Tel Aviv, IL"})
+    this.handleChange({key:this.props.cityId,label:this.props.cityName,value:this.props.cityName})
   }
 
 
 handleChange = selectedOption => {
+
     this.setState(
     { selectedOption },
     () => console.log(`Option selected:`, this.state.selectedOption)

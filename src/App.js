@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 
 
-const API_KEY = 'oHflRrFAtMd4mLGwIcIAdjr0XKC3PZwm'
+const API_KEY = '5n75gEJJtytWih2erkcIxf9UHG63J9fQ'
 
 class App extends Component {
 
@@ -18,8 +18,8 @@ class App extends Component {
     super();
     this.state ={
       favoritesCitys:[],
-      selectedCityId:"",
-      selectedCityName:"",
+      selectedCityId:"215854",
+      selectedCityName:"Tel Aviv, IL",
       selectedCityConditions:{},
       selectedCityForecasts:[],
       selectedCityisFav:0,
@@ -27,22 +27,18 @@ class App extends Component {
     }
     
   }
-/*
+
   componentDidMount() {
+    //start with defualt values
     //defualt values
-    this.updateSelectCityName('Tel Aviv')
-    this.getForcastFromAPI('215854')
-    this.getCurrentConditionsFromAPI('215854')
-    this.isInFav()
+
   }
-*/
+
   updateSelectCityName =(name)=>{
-    this.setState({selectedCityName:name})
-    
+    this.setState({selectedCityName:name}) 
   }
 
   getCurrentConditionsFromAPI = (cityId)=> {
-    
     const url ="https://dataservice.accuweather.com/currentconditions/v1/"+cityId+"?apikey="+API_KEY
     fetch(url)
     .then(res => res.json())
@@ -145,7 +141,10 @@ class App extends Component {
           <Header/>
           <Switch>
           <Route path="/favoritesPage">
-              <FavoritesPage getFavCitys={this.getFavCitys} />
+              <FavoritesPage 
+                getFavCitys={this.getFavCitys}
+                remFromFav={this.remFromFav} 
+              />
             </Route>
             <Route path="/">
               <HomePage
@@ -157,6 +156,7 @@ class App extends Component {
                 isInFav={this.isInFav}
                 remFromFav={this.remFromFav}
                 cityName = {this.state.selectedCityName}
+                cityId = {this.state.selectedCityId}
                 selectedCityConditions = {this.state.selectedCityConditions}
                 selectedCityForecasts = {this.state.selectedCityForecasts}
               />

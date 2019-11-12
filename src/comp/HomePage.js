@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import './HomePage.css';
 import AutoCompleteSearch from'./AutoCompleteSearch.js'
 import Card from'./Card.js'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
 const days_arr = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 
@@ -19,14 +17,14 @@ class HomePage extends Component {
             this.setState({FavoritesAddOrRemove: "Remove"})
         }
         else {
-            this.setState({FavoritesAddOrRemove: "Add to Favorites"})
+            this.setState({FavoritesAddOrRemove: "Favorites"})
         }
     }
 
     clickHandler = ()=>{
         if (this.props.isInFav()){
             this.props.remFromFav()
-            this.setState({FavoritesAddOrRemove: "Add to Favorites"})
+            this.setState({FavoritesAddOrRemove: "Favorites"})
         }
         else {
             this.props.addToFav()
@@ -57,6 +55,8 @@ class HomePage extends Component {
                         <div className=" d-flex justify-content-center mx-sm-5 mt-sm-5 mx-2 mt-2 "> 
                             <AutoCompleteSearch
                                 apiKey={this.props.apiKey}
+                                cityName = {this.props.cityName}
+                                cityId = {this.props.cityId}
                                 updateSelectCityName={this.props.updateSelectCityName}
                                 getForcastFromAPI= {this.props.getForcastFromAPI}
                                 getCurrentConditionsFromAPI={this.props.getCurrentConditionsFromAPI}
@@ -92,7 +92,7 @@ class HomePage extends Component {
                             </div>
 
                         {/* 5 days forcast section*/}
-                        <div className="d-flex flex-sm-row flex-column justify-content-center mb-2 ">
+                        <div className="d-flex flex-sm-row flex-column justify-content-center  ">
                             {this.props.selectedCityForecasts.map((day,i) =>{
                                 return(
                                     <Card

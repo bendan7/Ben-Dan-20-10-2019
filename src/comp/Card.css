@@ -7,15 +7,10 @@
 
 }
 .d-flex .card {
-
     background-color: transparent;
-    border-style: none;
-    
+    border-style: none;  
 }
-.test{
-    background-color: teal;
 
-}
 
 @media screen and (min-width: 576px) {
     .d-flex .card { 
@@ -25,12 +20,16 @@
     }
   } 
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 575px) {
     .small-screen{
         padding: 10px;
         border-top-style: solid;
         border-top-color: rgba(255, 255, 255, .2);;
         justify-content:space-between;
         width: 100%;
+    }
+
+    .fixweathericon{
+        margin-left: -20px;
     }
 } 
