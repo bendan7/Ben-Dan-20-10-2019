@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 
 
-const API_KEY = 'jjiGBZ6FUqhUcELbUWDaaHe5xAFxHdTE'
+const API_KEY = 'YVt7oQw9GCH2xHqAZ2bZJw0peKcJiW6f'
 
 class App extends Component {
 
