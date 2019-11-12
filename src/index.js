@@ -7,6 +7,7 @@ import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
 import { BrowserRouter } from "react-router-dom";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/animate.css/animate.min.css';
 
 
 ReactDOM.render(<BrowserRouter><App /></BrowserRouter>,document.getElementById('root'));
