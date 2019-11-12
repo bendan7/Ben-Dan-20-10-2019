@@ -24,7 +24,6 @@ handleChange = selectedOption => {
 
     this.setState(
     { selectedOption },
-    () => console.log(`Option selected:`, this.state.selectedOption)
     );
     this.props.updateSelectCityName(selectedOption.label)
     this.props.getCurrentConditionsFromAPI(selectedOption.key)
@@ -45,8 +44,6 @@ getSuggestionsFromAPI(url) {
     //let x = require('./demo.json');
     //this section build the suggestion array from the json
     const sugg =[]
-
-    console.log("new api call")
     fetch(url)
     .then(res => res.json())
     .then(
@@ -61,8 +58,8 @@ getSuggestionsFromAPI(url) {
       // instead of a catch() block so that we don't swallow
       // exceptions from actual bugs in components.
       (error) => {
-        console.log('ERROR: opsss something happen with the autocomplete request')
-        console.log(error)
+        //console.log('ERROR: opsss something happen with the autocomplete request')
+        //console.log(error)
       }
     )
   }
