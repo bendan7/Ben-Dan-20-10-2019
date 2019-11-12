@@ -26,7 +26,7 @@ class FavoritesPage extends Component {
     render(){   
         return(
             <div>
-                <h4>Favorites</h4>
+                <h4 className="mt-5">Favorites</h4>
                 <div className="d-flex flex-sm-row flex-column justify-content-center mt-2 mt-sm-5 ">
                     {this.state.data.map((city,i) =>{
                         return(

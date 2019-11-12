@@ -49,7 +49,7 @@ class HomePage extends Component {
 
         return(
             <div className="body d-flex-col">         
-                    <div className="d-flex-col w-100 " >  
+                    <div className="d-flex-col w-100 m-0 p-0" >  
 
                         {/* search bar */}                    
                         <div className=" d-flex justify-content-center mx-sm-5 mt-sm-5 mx-2 mt-2 "> 
