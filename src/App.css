@@ -1,7 +1,7 @@
 
 
 .nav {
-  background:linear-gradient(to bottom right, #2b5876, #4e4376);
+  
   height: 10vh;
   display: flex;
   flex-direction: row;
@@ -14,15 +14,10 @@ h2 {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background:linear-gradient(to bottom right, #E8CBC0, #636FA4,#fdbb2d);
+  background-image: linear-gradient(to left bottom, #4d263c, #51314c, #543d5b, #55496a, #555577, #525f7f, #516986, #51728b, #547b8d, #5b838d, #668a8e, #72918f);
 }
 
 .test {
   background-color: red;
   
-}
-
-
-.btn {
-
 }

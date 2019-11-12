@@ -11,7 +11,13 @@ class AutoCompleteSearch extends Component {
       selectedOption: null,
       options: []
     };
-  }  
+  }
+
+  
+  componentDidMount() {
+    //start with defualt values
+    this.handleChange({key:"215854",label:"Tel Aviv, IL",value:"Tel Aviv, IL"})
+  }
 
 
 handleChange = selectedOption => {
@@ -64,7 +70,7 @@ getSuggestionsFromAPI(url) {
     const { selectedOption } = this.state;
 
     return (
-      <div style={{maxWidth:'700px', width:'100%'}}>
+      <div style={{maxWidth:'600px', width:'100%', marginRight:'10px'}}>
         <Select
           value={selectedOption}
           onChange={this.handleChange}

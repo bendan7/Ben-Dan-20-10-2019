@@ -27,7 +27,7 @@ class App extends Component {
     }
     
   }
-
+/*
   componentDidMount() {
     //defualt values
     this.updateSelectCityName('Tel Aviv')
@@ -35,7 +35,7 @@ class App extends Component {
     this.getCurrentConditionsFromAPI('215854')
     this.isInFav()
   }
-
+*/
   updateSelectCityName =(name)=>{
     this.setState({selectedCityName:name})
     

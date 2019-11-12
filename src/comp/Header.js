@@ -9,10 +9,10 @@ function Header(props) {
         <h2>Herolo Task</h2>
           <div >
             <Link to="/">
-              <button style={{marginRight:'1vw',}} type="button" className="btn btn-outline-light" >Home</button>
+              <button style={{marginRight:'1vw',}} type="button" className="btn btn-outline-light  " >Home</button>
             </Link>
             <Link to="/favoritesPage">
-              <button style={{marginLeft:'1vw'}} type="button" className="btn btn-outline-light" >favoritesPage</button>
+              <button style={{marginLeft:'1vw'}} type="button" className="btn btn-outline-light " >favoritesPage</button>
             </Link>
           </div>
       </div>

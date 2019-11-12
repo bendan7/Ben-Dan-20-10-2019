@@ -14,7 +14,7 @@ input {
 }
 
 .WeatherIcon{
-    width: 150px;
+    width: 250px;
     height:auto;
 }
 
@@ -27,4 +27,15 @@ input {
     align-content: center;
     
     
+}
+
+h1, h5{
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px rgb(83, 83, 83);
+    
+}
+
+.myh1 {
+    font-size: 5em;
 }

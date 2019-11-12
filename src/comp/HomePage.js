@@ -61,44 +61,35 @@ class HomePage extends Component {
                                 getForcastFromAPI= {this.props.getForcastFromAPI}
                                 getCurrentConditionsFromAPI={this.props.getCurrentConditionsFromAPI}
                             />
+                            <button className="btn btn-outline-light btn-sm "
+                                onClick={this.clickHandler} >
+                                {this.state.FavoritesAddOrRemove}
+                            </button>
                         </div> 
 
-                        {/*second row */}
                         <div className="d-flex justify-content-center px-2 px-sm-5 pt-2 pt-sm-5"  >
                             
-                            <div className="d-flex flex-sm-row flex-column justify-content-between align-items-center" style={{ width:'100%', maxWidth:'700px'}}>
+                            <div className="d-flex flex-sm-row flex-column justify-content-center align-items-center " style={{ width:'100%', maxWidth:'700px'}}>
                                 
                                 {/* current city block */}
-                                <div className="currentCity d-flex">
-                                    <div>
+                                <div className="currentCity d-flex-col ">
+                                    <div >
                                         {currentweatherIcon}
                                     </div>
                                     <div>
-                                        <h5>{this.props.cityName}</h5> 
                                         <h5>{temp}</h5>
+                                        <h5>{this.props.cityName}</h5> 
                                     </div>
-                                    
                                 </div>
 
-
-                            {/* add to favorites block */}   
-                                <div className="d-flex align-self-sm-start align-self-end ">
-                                    <button className="btn btn-outline-light  "
-                                        onClick={this.clickHandler} >
-                                        {this.state.FavoritesAddOrRemove}
-                                        <span className="icon">
-                                            <FontAwesomeIcon icon={faHeart} size="2x" color="white"/>
-                                        </span> 
-                                    </button>
-                                </div>
                             </div>
                         </div> 
 
                         
                             {/* current city Weather block */}
-                            <div className="d-flex justify-content-center pb-2">
-                                    <h1>{this.props.selectedCityConditions.WeatherText}</h1>
-                                </div>
+                            <div className="d-flex justify-content-center mb-4">
+                                    <h1 className="myh1">{this.props.selectedCityConditions.WeatherText}</h1>
+                            </div>
 
                         {/* 5 days forcast section*/}
                         <div className="d-flex flex-sm-row flex-column justify-content-center mb-2 ">

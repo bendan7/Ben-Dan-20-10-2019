@@ -1,6 +1,8 @@
 .card-body {
     min-width: 120px;
     background-color: transparent;
+    font-size: 1.1em;
+    color:white;
     
 
 }
@@ -20,7 +22,6 @@
     border-radius: 10px;
     min-width: 10vw;
     min-height: 10vh;
-    box-shadow: 3px 4px 5px 0 rgba(0, 0, 0, 0.2)
     }
   } 
 
