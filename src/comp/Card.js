@@ -10,7 +10,7 @@ function Card(props) {
                 <div className="d-flex flex-sm-column align-items-center justify-items-center small-screen">
                     
                     <div className="d-flex flex-sm-column align-items-center justify-items-center">                                                                  
-                        <img className="fixweathericon" src={"/AccuWeatherIcons/"+props.weatherIconId+".png"} alt="weatherIcon" style={{width:'10vw', minWidth:'100px'}} />
+                        <img className="fixweathericon" src={"AccuWeatherIcons/"+props.weatherIconId+".png"} alt="weatherIcon" style={{width:'10vw', minWidth:'100px'}} />
                         <div className="d-flex justify-content-center">{props.temp+'°c'}</div>
                     </div>
                     <div >{props.day} {props.date}</div>    

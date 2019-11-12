@@ -12,7 +12,7 @@ function CardFav(props) {
                 <div className="d-flex flex-sm-column align-items-center justify-items-center small-screen">                                              
                     
                     <div className="d-flex flex-sm-column align-items-center justify-items-center">
-                        <img  className="fixweathericon" src={"/AccuWeatherIcons/"+props.weatherIconId+".png"} alt="weatherIcon" style={{width:'12vw', minWidth:'100px'}} />
+                        <img  className="fixweathericon" src={"AccuWeatherIcons/"+props.weatherIconId+".png"} alt="weatherIcon" style={{width:'12vw', minWidth:'100px'}} />
                         <div>{props.temp+'°c'}</div>
                     </div>
                     <div >

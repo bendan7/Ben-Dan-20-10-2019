@@ -33,7 +33,7 @@ class HomePage extends Component {
     }
 
     render(){
-        
+ 
         let temp = ""
         let currentweatherIcon = ""
  
@@ -41,18 +41,17 @@ class HomePage extends Component {
             temp = this.props.selectedCityConditions.Temperature.Metric.Value +'°c'
             currentweatherIcon = 
             <img className="WeatherIcon"
-            src={"/AccuWeatherIcons/"+this.props.selectedCityConditions.WeatherIcon+".png"} 
+            src={"AccuWeatherIcons/"+this.props.selectedCityConditions.WeatherIcon+".png"} 
             alt="weatherIcon" 
             />
         }
-
 
         return(
             <div className="body d-flex-col">         
                     <div className="d-flex-col w-100 m-0 p-0" >  
                     
                         {/* search bar */}                    
-                        <div className=" d-flex justify-content-center mx-sm-5 mt-sm-5 mx-2 mt-2 animated slower bounceInLeft "> 
+                        <div className=" d-flex justify-content-center mx-2 mt-2 animated slower bounceInLeft "> 
                             <AutoCompleteSearch
                                 apiKey={this.props.apiKey}
                                 cityName = {this.props.cityName}
@@ -63,7 +62,7 @@ class HomePage extends Component {
                             />
                             <button className="btn btn-outline-light btn-sm "
                                 onClick={this.clickHandler} >
-                                {this.state.FavoritesAddOrRemove}
+                                {this.props.isInFav()? "Remove" : "Favorites"}
                             </button>
                         </div> 
 

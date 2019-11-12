@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 
 
-const API_KEY = '5n75gEJJtytWih2erkcIxf9UHG63J9fQ'
+const API_KEY = 'jjiGBZ6FUqhUcELbUWDaaHe5xAFxHdTE'
 
 class App extends Component {
 
@@ -50,6 +50,7 @@ class App extends Component {
               selectedCityId:cityId
             }
         )
+
         this.render()
         
       },
